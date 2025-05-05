@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 
 Route::get('/', function () {
     return response()->json([
@@ -26,5 +27,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('authors', [AuthorController::class, 'store']);
     Route::put('authors/{id}', [AuthorController::class, 'update']);
     Route::delete('authors/{id}', [AuthorController::class, 'destroy']);
+
+    Route::get('books', [BookController::class, 'index']);
+    Route::get('books/{id}', [BookController::class, 'show']);
+    Route::post('books', [BookController::class, 'store']);
+    Route::put('books/{id}', [BookController::class, 'update']);
+    Route::delete('books/{id}', [BookController::class, 'destroy']);
 
 });

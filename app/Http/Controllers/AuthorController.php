@@ -24,7 +24,6 @@ class AuthorController extends Controller
 
         return response()->json([
             'author' => Author::find($id),
-            'books' => Author::find($id)->books
         ]);
     }
     
